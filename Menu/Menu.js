@@ -12,3 +12,6 @@ const menuButton = document.querySelector('.header .menu-button');
 // Using your menuButton reference, add a click handler that calls toggleMenu
 menuButton.addEventListener('click', toggleMenu);
 
+title = document.querySelector('.header h1');
+//TweenLite.from(title, 2, {x: '+=300px', autoAlpha: 0});
+TweenLite.from(title, 1, {x: '+=400px', ease:Power4.easeInOut, delay: 0.05});

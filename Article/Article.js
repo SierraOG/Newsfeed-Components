@@ -46,3 +46,5 @@ class Article {
 let articles = document.querySelectorAll('.article');
 
 articles.forEach(article => new Article(article));
+
+TweenLite.from(articles, 0.4, {y: '+500px', ease:Power3.easeInOut, delay: 0});
