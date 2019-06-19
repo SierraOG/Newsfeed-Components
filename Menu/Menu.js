@@ -15,3 +15,4 @@ menuButton.addEventListener('click', toggleMenu);
 title = document.querySelector('.header h1');
 //TweenLite.from(title, 2, {x: '+=300px', autoAlpha: 0});
 TweenLite.from(title, 1, {x: '+=400px', ease:Power4.easeInOut, delay: 0.05});
+TweenMax.from('.menu-button', 1, {opacity:0, scale:0, ease:Bounce.easeOut, delay:.7})
