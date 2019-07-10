@@ -103,3 +103,52 @@ const data = [
   Step 4: Map over the data, creating a component for each oject and add each component to the DOM as children of the 'articles' div.
   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new artible
 */
+// select articles div
+const articles = document.querySelector('.articles');
+
+// adding the articles as children to the articles div after making them components
+data.forEach(article => {
+  articles.appendChild(createArticle(article));
+})
+
+function createArticle(articleObject){
+  // define new elements
+  const articleBox = document.createElement('div');
+  const articleTitle = document.createElement('h2');
+  const articleDate = document.createElement('p');
+  const articleContent1 = document.createElement('p');
+  const articleContent2 = document.createElement('p');
+  const articleContent3 = document.createElement('p');
+  const articleButton = document.createElement('span');
+
+  // Setup element structure
+  articleBox.appendChild(articleTitle);
+  articleBox.appendChild(articleDate);
+  articleBox.appendChild(articleContent1);
+  articleBox.appendChild(articleContent2);
+  articleBox.appendChild(articleContent3);
+  articleBox.appendChild(articleButton);
+
+  // Set class names 
+  articleBox.classList.add('article');
+  articleDate.classList.add('date');
+  articleButton.classList.add('expandButton');
+
+  // Set text content
+  articleTitle.textContent = articleObject.title;
+  articleDate.textContent = articleObject.date;
+  articleContent1.textContent = articleObject.firstParagraph;
+  articleContent2.textContent = articleObject.secondParagraph;
+  articleContent3.textContent = articleObject.thirdParagraph;
+  articleButton.textContent = 'expand';
+
+  // add button event
+  articleButton.addEventListener('click', event => {
+
+    articleBox.classList.toggle('article-open');
+    (articleButton.textContent === 'expand') ? articleButton.textContent = 'hide' : articleButton.textContent = 'expand';
+  });
+
+  // returns component
+  return articleBox;
+}
